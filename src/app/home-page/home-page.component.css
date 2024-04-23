@@ -1,0 +1,28 @@
+.mat-card {
+  padding: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.mat-card-header {
+  font-size: 18px;
+  color: #333;
+}
+
+.mat-card-subtitle {
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+
+.mat-raised-button {
+  background-color: #007bff; /* Primary color */
+  color: #fff;
+}
+
+
+img.mat-card-sm-image {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}

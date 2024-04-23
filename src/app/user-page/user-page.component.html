@@ -1,0 +1,33 @@
+@if (loading) {
+<mat-spinner
+  class="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+></mat-spinner>
+}@else {
+<mat-card
+  class="w-[400px] mb-2 p-5 shadow-md gap-10 mx-auto hover:scale-[1.05] transition-transform ease-linear fixed top-1/3 -translate-y-1/3"
+  style="background-color: #406ab4"
+>
+  <mat-card-header class="text-lg text-white gap-5">
+    <mat-card-title-group>
+      <mat-card-title>
+        {{ user.first_name }} {{ user.last_name }}
+      </mat-card-title>
+      <mat-card-subtitle class="text-sm text-gray-600 mt-2">
+        {{ user.email }}
+      </mat-card-subtitle>
+    </mat-card-title-group>
+    <img [src]="user.avatar" alt="User Avatar" class="w-20 h-20 rounded-full" />
+  </mat-card-header>
+  <mat-card-content class="w-full">
+    <a
+      mat-raised-button
+      (click)="goBack()"
+      class="mx-auto block"
+      style="background-color: #406ab4"
+    >
+      Back
+    </a>
+  </mat-card-content>
+</mat-card>
+
+}

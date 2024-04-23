@@ -1,0 +1,33 @@
+<header class='flex justify-between items-center p-2 flex-wrap'>
+  <div class="w-[200px]">
+    <img src="/assets/maid.cc.png" class="w-full h-full" alt="">
+  </div>
+  <form class="example-form">
+    <mat-form-field class="example-full-width" color="primary">
+      <mat-label class="text-white">User ID</mat-label>
+      <input
+        matInput
+        aria-label="user"
+        [matAutocomplete]="auto"
+        [formControl]="userCtrl"
+        class="text-[#406ab4]"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        @for (user of users | async; track $index) {
+          <mat-option [value]="user.data.id">
+            <a class="flex items-center gap-3 w-full" routerLink="/users/{{ user.data.id }}">
+              <img
+                alt="image"
+                class="example-option-img rounded-full w-10 h-10"
+                [src]="user.data.avatar"
+              />
+              <span>{{ user.data.first_name }} {{ user.data.last_name }}</span>
+            </a>
+          </mat-option>
+        }
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+
+</header>

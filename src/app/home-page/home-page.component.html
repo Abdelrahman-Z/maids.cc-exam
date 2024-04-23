@@ -1,0 +1,54 @@
+@if (loading) {
+<mat-spinner
+  class="fixed top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
+  style="background-color: #406ab4"
+></mat-spinner>
+
+}@else {
+<div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 mt-20">
+  @for (user of users.data; track $index) {
+  <mat-card
+    class="w-[400px] mb-2 p-5 shadow-md mx-auto hover:scale-[1.02] transition-transform ease-linear"
+    style="background-color: #406ab4"
+  >
+    <mat-card-header class="text-lg text-white gap-5">
+      <mat-card-title-group>
+        <mat-card-title>
+          {{ user.first_name }} {{ user.last_name }}
+        </mat-card-title>
+        <mat-card-subtitle class="text-sm text-gray-600 mt-2">
+          {{ user.email }}
+        </mat-card-subtitle>
+      </mat-card-title-group>
+      <img
+        [src]="user.avatar"
+        alt="User Avatar"
+        class="w-20 h-20 rounded-full"
+      />
+    </mat-card-header>
+    <mat-card-content>
+      <a
+        mat-raised-button
+        routerLink="/users/{{ user.id }}"
+        style="background-color: #406ab4"
+      >
+        View Profile
+      </a>
+    </mat-card-content>
+  </mat-card>
+  }
+</div>
+
+<div class="grid grid-cols-2 gap-3 w-fit mx-auto mt-20">
+  @for (page of pages; track $index) {
+  <button
+    (click)="onPageButtonClick(page)"
+    mat-flat-button
+    style="background-color: #406ab4"
+  >
+    {{ page }}
+  </button>
+  }
+</div>
+
+}
